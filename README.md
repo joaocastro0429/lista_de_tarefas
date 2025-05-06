@@ -2,10 +2,7 @@
 
 Um projeto simples e funcional desenvolvido com Django, que permite ao usuário **cadastrar, editar, listar e excluir tarefas**. Ideal para praticar conceitos de CRUD, formulários, rotas, templates e uso de Bootstrap.
 
-## 🚀 Demonstração
 
-![Preview](https://via.placeholder.com/800x400.png?text=Preview+da+Aplicacao)
-> ⚠️ Substitua o link acima por uma imagem real do projeto
 
 ---
 
