@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+  <h1>Editar Tarefa</h1>
+  <form method="POST">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título:</label>
+      <input type="text" class="form-control" name="titulo" id="titulo" value="{{ tarefa.titulo }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="descricao" class="form-label">Descrição:</label>
+      <textarea name="descricao" id="descricao" class="form-control" required>{{ tarefa.descricao }}</textarea>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" name="status" id="status" class="form-check-input" {% if tarefa.status %}checked{% endif %}>
+      <label for="status" class="form-check-label">Concluída</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+{% endblock %}

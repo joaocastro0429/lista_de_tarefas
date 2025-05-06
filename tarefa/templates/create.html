@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+    <h1>Nova tarefa</h1>
+    <form method="POST" action="{% url 'criar' %}">
+        {% csrf_token %}
+        <label for="titulo" class="form-label">Título</label><br>
+        <input class="form-control" type="text" name="titulo" id="titulo" required><br>
+
+        <label for="descricao" class="form-label">Descrição</label><br>
+        <textarea class="form-control" name="descricao" id="descricao" required></textarea><br>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+{% endblock %}
+

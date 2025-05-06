@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+  <h1>Lista de Tarefas</h1>
+
+  <a href="{% url 'criar' %}">
+    <button type="button" class="btn btn-primary mb-3">cadastrar</button>
+  </a>
+  <table class= "table table-dark">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tarefa in tarefas %}
+        <tr>
+          <td>{{ tarefa.titulo }}</td> 
+          <td>{{ tarefa.descricao }}</td>
+          <td>{{ tarefa.status|yesno:"Concluída,Não concluída" }}</td>
+          <td>
+            <a href="{% url 'edit' tarefa.id %}">
+              <button type="button" class="btn btn-warning">Editar</button>            
+            </a>
+            <a href="{% url 'excluir' tarefa.id %}" onclick="return confirm('Tem certeza que deseja excluir?');">
+              <button type="button" class="btn btn-danger">Ecluir</button> 
+                       </a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">Nenhuma tarefa cadastrada.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
